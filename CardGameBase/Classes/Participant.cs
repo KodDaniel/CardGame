@@ -5,7 +5,7 @@ using CardGameBase.Interfaces;
 
 namespace CardGameBase.Classes
 {
-    public class Player:IPlayer
+    public class Player:IParticipant
     {
         public int ID { get; }
         public string Name { get; }
@@ -13,7 +13,7 @@ namespace CardGameBase.Classes
 
         public Hand Hand { get; set; }
 
-       public Player(int Id, string name)
+       public Player (int Id, string name)
         {
             ID = Id;
             Name = name;

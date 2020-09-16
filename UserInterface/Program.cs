@@ -14,17 +14,18 @@ namespace UserInterface
         {
 
             // Skapa nya spelare 
-            var players = new List<IPlayer>
+            var players = new List<IParticipant>
             {
-                new BlackJackPlayer(1,"Daniel"),
-                new BlackJackPlayer(2,"James"),
-                new BlackJackPlayer(3,"Johan"),
-
-
+                new BlackJackPlayert(1,"Daniel"),
+                new BlackJackPlayert(2,"James"),
+                new BlackJackPlayert(3,"Johan"),
+                new BlackJackDealer(1)
             };
 
             // Skapar ny deck 
            IDeck deck = new BlackJackDeck();
+
+             
           
 
             List<GameRule> gameRules = new List<GameRule> {new GameRule("Det måste finnas en dealer", false)};
@@ -32,8 +33,15 @@ namespace UserInterface
 
              IGame  b = new Game(players, deck, gameRules);
 
-             b.Players.ForEach(Console.WriteLine);
-             Console.ReadLine();
+
+             foreach (var player in b.Players)
+             {
+                 if (player is Player d)
+                 {
+                     
+                 }
+             }
+               
         }
     }
 }

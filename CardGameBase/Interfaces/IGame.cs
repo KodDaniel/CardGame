@@ -8,7 +8,7 @@ namespace CardGameBase.Interfaces
 {
    public interface IGame
    {
-        List<IPlayer> Players { get; }
+        List<IParticipant> Players { get; }
         IDeck Deck { get;}
         List<GameRule> GameRules { get;}
         bool GameRulesFulFilled { get;}

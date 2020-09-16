@@ -8,7 +8,7 @@ namespace BlackJack
 {
     public class BlackJackGame:Game
     {
-        public BlackJackGame(List<IPlayer> players, IDeck deck, List<GameRule> gameRules) : base(players, deck, gameRules)
+        public BlackJackGame(List<IParticipant> players, IDeck deck, List<GameRule> gameRules) : base(players, deck, gameRules)
         {
         }
     }
