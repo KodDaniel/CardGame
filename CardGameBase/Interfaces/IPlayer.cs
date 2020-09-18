@@ -9,7 +9,7 @@ namespace CardGameBase.Interfaces
    {
      int ID { get; }
      string Name { get; } 
-     Hand Hand { get; }
+     IHand Hand { get; }
    }
 
 }

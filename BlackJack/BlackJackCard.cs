@@ -25,7 +25,6 @@ namespace BlackJack
             }
         }
 
-
         public override string ToString() =>
             $"(BlackjackCard: Suite: {Suite}, Face: {EnumFace}, Value: {Value})";
     }

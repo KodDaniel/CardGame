@@ -12,6 +12,7 @@ namespace BlackJack
         public BlackJackPlayer(int Id, string name) : base(Id, name) { }
 
         public override string ToString() =>
-            $"ID {ID},Name:{Name}, Is finsihed: {IsFinisihed}, Is thick: {IsThick}";
+            $"ID {ID}, Name: {Name}, NumberOfCards:{Hand.NumberOfCards}," +
+            $" Score: {Hand.Score}, Lastcard: {Hand.LastCard}, Is finsihed: {IsFinisihed}, Is thick: {IsThick}";
     }
 }

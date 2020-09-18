@@ -33,6 +33,7 @@ namespace UserInterface
 
 
 
+    // Glöm inte att implementera att vi alltid behöver en dealer
     public class BlackJack
     {
         public static List<BlackJackPlayer> Players { get; private set; }
@@ -46,7 +47,6 @@ namespace UserInterface
             Deck = deck;
             BlackJackDealer = dealer;
             SetUpCardGame.InitializeGame(Deck,Players);
-            
         }
 
         public void D()
@@ -54,6 +54,12 @@ namespace UserInterface
             foreach (ICard card in Deck)
             {
                 Console.WriteLine(card);
+            }
+
+            Console.WriteLine("----------------------------------------------------------");
+            foreach (var blackJackPlayer in Players)
+            {
+                Console.WriteLine(blackJackPlayer);
             }
         }
        

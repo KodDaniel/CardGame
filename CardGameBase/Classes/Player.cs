@@ -10,7 +10,7 @@ namespace CardGameBase.Classes
         public int ID { get; }
         public string Name { get; }
         public bool IsFinisihed { get; protected set; }
-        public Hand Hand { get; set; }
+        public IHand Hand { get; set; }
 
        public Player (int Id, string name)
         {
