@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using BlackJack;
-using CardGameBase;
 using CardGameBase.Classes;
 using CardGameBase.Interfaces;
 
@@ -13,35 +11,56 @@ namespace UserInterface
         static void Main(string[] args)
         {
 
-            // Skapa nya spelare 
-            var players = new List<IParticipant>
+            List<BlackJackPlayer> players = new List<BlackJackPlayer>()
             {
-                new BlackJackPlayert(1,"Daniel"),
-                new BlackJackPlayert(2,"James"),
-                new BlackJackPlayert(3,"Johan"),
-                new BlackJackDealer(1)
+                new BlackJackPlayer(1,"Daniel"),
+                new BlackJackPlayer(2,"Ida")
             };
 
-            // Skapar ny deck 
-           IDeck deck = new BlackJackDeck();
+           BlackJackDeck deck = new BlackJackDeck();
 
-             
-          
+            BlackJackDealer dealer = new BlackJackDealer(1,"James the Dealer");
 
-            List<GameRule> gameRules = new List<GameRule> {new GameRule("Det måste finnas en dealer", false)};
+            BlackJack  blackjack = new BlackJack(players,deck,dealer);
 
-
-             IGame  b = new Game(players, deck, gameRules);
-
-
-             foreach (var player in b.Players)
-             {
-                 if (player is Player d)
-                 {
-                     
-                 }
-             }
-               
+            blackjack.D();
+            Console.ReadLine();
         }
+
+
+        
+    }
+
+
+
+    public class BlackJack
+    {
+        public static List<BlackJackPlayer> Players { get; private set; }
+        public static BlackJackDeck Deck { get; private set; }
+        public static BlackJackDealer BlackJackDealer { get; private set; }
+
+
+        public BlackJack(List<BlackJackPlayer> players, BlackJackDeck deck, BlackJackDealer dealer)
+        {
+            Players = players;
+            Deck = deck;
+            BlackJackDealer = dealer;
+            SetUpCardGame.InitializeGame(Deck,Players);
+            
+        }
+
+        public void D()
+        {
+            foreach (ICard card in Deck)
+            {
+                Console.WriteLine(card);
+            }
+        }
+       
+
+           
+        
+
+        
     }
 }

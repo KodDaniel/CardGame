@@ -7,20 +7,20 @@ using UtilitiesLib;
 
 namespace CardGameBase.Classes
 {
-    public class Deck : IDeck, IEnumerable
+    public class Deck : IDeck
     {
-        private readonly List<Card> _cards;
+        protected readonly List<ICard> _cards;
         public int NumberOfDecks { get; protected set; } = 1;
         public int CardCount { get; private set; }
 
         // Om index faller utanför listan, undvik exception och returna null istället
-        public Card this[int index] => _cards.OutOfRange(index) ? null : _cards[index];
+        public ICard this[int index] => _cards.OutOfRange(index) ? null : _cards[index];
 
-        public Deck() => _cards = new List<Card>();
+        public Deck() => _cards = new List<ICard>();
 
         public Deck(int numberOfDecks)
         {
-            _cards = new List<Card>();
+            _cards = new List<ICard>();
             NumberOfDecks = numberOfDecks;
         }
 
@@ -30,9 +30,14 @@ namespace CardGameBase.Classes
             Shuffle();
         }
 
+        public void SwapCards()
+        {
+            throw new NotImplementedException();
+        }
+
         public void DisCardCards() => _cards.Clear();
 
-        public Card DrawNextCard() => _cards.RemoveAndReturnFirst();
+        public ICard DrawNextCard() =>_cards.RemoveAndReturnFirst();
 
 
         // Virutal eftersom det är troligt att olika kortspel vill göra detta på olika sätt

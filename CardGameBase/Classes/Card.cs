@@ -10,7 +10,7 @@ namespace CardGameBase.Classes
         public EnumSuite Suite { get; }
         public EnumFace EnumFace { get; }
         public string SuiteString => Suite.ToString();
-        public int Value { get; protected set; }
+        public int Value { get; set; }
         public string ValueString => Value.ToString();
         public bool FaceUp { get; set; }
 
@@ -23,13 +23,9 @@ namespace CardGameBase.Classes
         // Sätt det ursprungliga värdet
         public virtual void InitalizeCardValue() => Value = (int)EnumFace;
 
-        // Möjligt att ändra värdet
-        public void SetCardValue(int newValue) => Value = newValue;
-            
-        
 
         public override string ToString() =>
-            $"(Suite: s Face: {EnumFace}, Value: {Value})";
+            $"(Card: Suite: {Suite}, Face: {EnumFace}, Value: {Value})";
 
 
     }

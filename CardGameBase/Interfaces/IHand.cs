@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +8,13 @@ using UtilitiesLib;
 
 namespace CardGameBase.Interfaces
 {
-    public interface IHand
+    public interface IHand:IEnumerable
     {
         bool LastCard { get;}
         int NumberOfCards { get; }
         int Score { get; }
-        Card this[int index] { get;}
-        void AddCard(Card card);
+        ICard this[int index] { get;}
+        void AddCard(ICard card);
         void Clear();
     }
 }

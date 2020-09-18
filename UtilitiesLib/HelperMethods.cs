@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UtilitiesLib
 {
-    public static class ExtensionMethods
+    public static class HelperMethods
     {
         public static void Shuffle<T>(this List<T> list)
         {
@@ -35,6 +35,12 @@ namespace UtilitiesLib
 
         public static bool NullOrEmpty<T>(this List<T> list) => list == null || !list.Any();
 
+
+        //public static T1 ReturnType<T, T1>(T1 value1, T type)
+        //{
+        //    if (value1 is T) return value1;
+
+        //}
 
 
     }

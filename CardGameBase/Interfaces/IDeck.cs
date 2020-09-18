@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using CardGameBase.Classes;
 
 namespace CardGameBase.Interfaces
 {
-    public interface IDeck
+    public interface IDeck:IEnumerable
     {
         int NumberOfDecks { get; }
         int CardCount { get; }
-        Card this[int index] { get; }
+        ICard this[int index] { get; }
         void InitializeDeck();
         void DisCardCards();
-        Card DrawNextCard();
+        ICard DrawNextCard();
         void FillDeckWithCards();
         void Shuffle();
 

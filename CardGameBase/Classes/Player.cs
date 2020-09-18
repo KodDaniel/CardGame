@@ -5,12 +5,11 @@ using CardGameBase.Interfaces;
 
 namespace CardGameBase.Classes
 {
-    public class Player:IParticipant
+    public class Player:IPlayer
     {
         public int ID { get; }
         public string Name { get; }
         public bool IsFinisihed { get; protected set; }
-
         public Hand Hand { get; set; }
 
        public Player (int Id, string name)

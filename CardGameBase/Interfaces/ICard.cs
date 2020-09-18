@@ -12,5 +12,7 @@ namespace CardGameBase.Interfaces
         string SuiteString { get; }
         int Value { get; }
         string ValueString { get; }
+        bool FaceUp { get; set; }
+        void InitalizeCardValue();
     }
 }
