@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CardGameBase.Classes;
+using CardGameBase.Baseclasses;
 using CardGameBase.Interfaces;
 
 namespace BlackJack
@@ -9,6 +9,8 @@ namespace BlackJack
     public class BlackJackCard:Card 
     { 
         public BlackJackCard(EnumSuite suite, EnumFace enumFace) : base(suite,enumFace) { }
+
+        // Inte helt korrekt avseende att ess kan vara 1 ellet 14, men en förbättring
         public override void InitalizeCardValue()
         {
             switch (EnumFace)
@@ -26,6 +28,6 @@ namespace BlackJack
         }
 
         public override string ToString() =>
-            $"(BlackjackCard: Suite: {Suite}, Face: {EnumFace}, Value: {Value})";
+            $"(Blackjack card: Suite: {Suite}, Face: {EnumFace}, Value: {Value}, Faceup: {FaceUp})";
     }
 }

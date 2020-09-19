@@ -5,13 +5,16 @@ using System.Text;
 using CardGameBase.Interfaces;
 using UtilitiesLib;
 
-namespace CardGameBase.Classes
+namespace CardGameBase.Baseclasses
 {
+    /// <summary>
+    ///  This class holds the generic behaviors of a deck
+    /// </summary>
     public class Deck : IDeck
     {
         protected readonly List<ICard> _cards;
         public int NumberOfDecks { get; protected set; } = 1;
-        public int CardCount { get; private set; }
+        public int CardCount => _cards.Count;
 
         // Om index faller utanför listan, undvik exception och returna null istället
         public ICard this[int index] => _cards.OutOfRange(index) ? null : _cards[index];
@@ -30,10 +33,10 @@ namespace CardGameBase.Classes
             Shuffle();
         }
 
-        public void SwapCards()
-        {
-            throw new NotImplementedException();
-        }
+        //public void SwapCards()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void DisCardCards() => _cards.Clear();
 
@@ -56,10 +59,6 @@ namespace CardGameBase.Classes
                 }
                 NumberOfDecks--;
             }
-
-            // Hitta ett snyggare sätt att hålla kolla på counten utan att upprepa massa kod i olika metoder
-            CardCount = _cards.Count;
-
         }
 
         public void Shuffle() => _cards.Shuffle();

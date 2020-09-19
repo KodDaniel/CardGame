@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CardGameBase.Classes
+namespace CardGameBase.Baseclasses
 {
     public enum EnumSuite { Clubs, Diamonds, Hearts, Spades }
 
 }
+
+
 
     

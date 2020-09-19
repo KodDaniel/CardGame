@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using CardGameBase.Classes;
+using CardGameBase.Baseclasses;
 
 namespace CardGameBase.Interfaces
 {

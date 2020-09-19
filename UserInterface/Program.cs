@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using BlackJack;
-using CardGameBase.Classes;
+using CardGameBase.Baseclasses;
+using CardGameBase.BaseClasses;
 using CardGameBase.Interfaces;
 
 namespace UserInterface
@@ -23,7 +24,7 @@ namespace UserInterface
 
             BlackJack  blackjack = new BlackJack(players,deck,dealer);
 
-            blackjack.D();
+            blackjack.Print();
             Console.ReadLine();
         }
 
@@ -32,13 +33,14 @@ namespace UserInterface
     }
 
 
-
-    // Glöm inte att implementera att vi alltid behöver en dealer
+  // Glöm inte att implementera att vi alltid behöver en dealer
+  // Fast eftersom man måste göra det i konstruktor när väl det gjort? 
     public class BlackJack
     {
         public static List<BlackJackPlayer> Players { get; private set; }
         public static BlackJackDeck Deck { get; private set; }
         public static BlackJackDealer BlackJackDealer { get; private set; }
+        
 
 
         public BlackJack(List<BlackJackPlayer> players, BlackJackDeck deck, BlackJackDealer dealer)
@@ -46,11 +48,13 @@ namespace UserInterface
             Players = players;
             Deck = deck;
             BlackJackDealer = dealer;
-            SetUpCardGame.InitializeGame(Deck,Players);
+            SetUpCardGame.InitializeGame(dealer,Deck,Players,2);
         }
 
-        public void D()
+        
+        public void Print()
         {
+
             foreach (ICard card in Deck)
             {
                 Console.WriteLine(card);
@@ -61,12 +65,18 @@ namespace UserInterface
             {
                 Console.WriteLine(blackJackPlayer);
             }
+            Console.WriteLine("----------------------------------------------------------");
+            Console.WriteLine(Deck.CardCount);
+
+            Dealer dealer = new Dealer(2,"Oskar the man");
+
+          
         }
-       
 
-           
-        
 
-        
+
+
+
+
     }
 }

@@ -6,8 +6,11 @@ using System.Text;
 using CardGameBase.Interfaces;
 using UtilitiesLib;
 
-namespace CardGameBase.Classes
+namespace CardGameBase.Baseclasses
 {
+    /// <summary>
+    ///  This class holds the generic behaviors of a Hand
+    /// </summary>
     public class Hand : IHand
     {
         private readonly List<ICard> _cards;

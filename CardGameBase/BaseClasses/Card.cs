@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using CardGameBase.Interfaces;
 
-namespace CardGameBase.Classes
+namespace CardGameBase.Baseclasses
 {
+    /// <summary>
+    ///  This class holds the generic behaviors of a card
+    /// </summary>
     public class Card:ICard 
     {
         public EnumSuite Suite { get; }
@@ -20,12 +23,14 @@ namespace CardGameBase.Classes
             EnumFace = enumFace;
         }
 
-        // Sätt det ursprungliga värdet
+        /// <summary>
+        ///  Sets the (generic) initial card values
+        /// </summary>
         public virtual void InitalizeCardValue() => Value = (int)EnumFace;
 
 
         public override string ToString() =>
-            $"(Card: Suite: {Suite}, Face: {EnumFace}, Value: {Value})";
+            $"(Card: Suite: {Suite}, Face: {EnumFace}, Value: {Value}, FaceUp: {FaceUp})";
 
 
     }
